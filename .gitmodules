@@ -1,0 +1,3 @@
+[submodule "MLops-ZenML_"]
+	path = MLops-ZenML_
+	url = https://github.com/cristianBMJ/MLops-ZenML
