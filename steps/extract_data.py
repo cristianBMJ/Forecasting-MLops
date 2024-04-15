@@ -28,6 +28,13 @@ def extract_data():
             
             # TODO: Data processing and transformation
             with open('extracted_data.json', 'a') as f:
+                if f.tell() == 0:
+                    # If the file is empty, write the opening bracket for the array
+                    f.write('[')
+                else:
+                    # If the file is not empty, add a comma to separate the new object
+                    f.write(',')
+
                 json.dump(data, f, indent=4)
 
             
