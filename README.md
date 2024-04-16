@@ -8,8 +8,16 @@ Install requirements:
 pip install "zenml[server]"
 ```
 
-
-
 Integration with sklearn
 
+``´bash
+zenml integration install sklearn -y
+```
 
+
+
+```python
+# Python code block
+def hello_world():
+    print("Hello, world!")
+```
