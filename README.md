@@ -5,7 +5,7 @@ Forecasting streaming data under paradigm MLops
 Install requirements:
 
 ```bash
-pip install "zenml[server]" 
+pip install "zenml[server]" ```
 
 Integration with sklearn
 
