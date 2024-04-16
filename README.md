@@ -10,7 +10,7 @@ pip install "zenml[server]"
 
 Integration with sklearn
 
-``´bash
+```bash
 zenml integration install sklearn -y
 ```
 
