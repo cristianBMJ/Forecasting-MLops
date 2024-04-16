@@ -5,5 +5,4 @@ Forecasting streaming data under paradigm MLops
 Install requirements:
 
 ```bash
-# Example Bash script
-echo "Hello, world!"
+!pip install "zenml[server]" 
