@@ -6,7 +6,7 @@ Install requirements:
 
 ```bash
 pip install "zenml[server]"
-
+``
 
 
 
