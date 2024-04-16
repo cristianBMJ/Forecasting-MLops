@@ -14,7 +14,7 @@ Integration with sklearn
 zenml integration install sklearn -y
 ```
 
-python
+
 
 
 
