@@ -15,9 +15,3 @@ zenml integration install sklearn -y
 ```
 
 
-
-```python
-# Python code block
-def hello_world():
-    print("Hello, world!")
-```
