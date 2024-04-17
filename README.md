@@ -8,13 +8,18 @@ Install requirements:
 pip install "zenml[server]"
 ```
 
-Integration with sklearn
+Integration with scikit-learn
 
 ```bash
 zenml integration install sklearn -y
 ```
 
 
+Integration with MLflow
+
+```bash
+zenml integration install mlflow -y
+```
 
 
 
