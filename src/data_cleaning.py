@@ -20,8 +20,10 @@ class DataPreProcessingStrategy( DataStrategy):
     """
     def handle_data(self, data: pd.DataFrame) -> pd.DataFrame:
         try:
-            # data = data.d
-            data = data.select_dtypes( include = [np.number])
+            data = data.drop(["Codigo", "Nombre", "Fecha"], axis=1)
+            data['Valor'] = pd.to_numeric(data['Valor'].str.replace(',', '.'))
+            #data["Fecha"] = pd.to_datetime( data["Fecha"]) 
+            data["time"] = data.index 
             return data
         except Exception as e:
             logging.error("Error in preprocessing data: {}".format(e) )
@@ -33,12 +35,12 @@ class DataDivideStrategy( DataStrategy):
     """
     def handle_data(self, data: pd.DataFrame) -> Union[ pd.DataFrame , pd.Series]:
         try:
-            X = data.drop( ["value"], axis=1) # time serie
-            y = data["value"] # dolar value
+            X = data.drop( ["Valor"], axis=1) # time serie
+            y = data["Valor"] # dolar value
             X_train, x_test, y_train, y_test = train_test_split( X, y , test_size=0.2, random_state=42)
             return X_train, x_test, y_train, y_test 
         except Exception as e:
-            logging.error( "Error in dividing data: {e}".format(e))
+            logging.error( "Error in dividing data: {}".format(e))
             raise
         
 class DataCleaning:
@@ -60,7 +62,8 @@ class DataCleaning:
             raise e
         
 if __name__ == "__main__":
-    data = pd.read_csv("/workspaces/MLops-ZenML/data/olist_customers_dataset.csv")
+    data_path = "/workspaces/Forecasting-MLops/data/extracted_data.json"
+    data = pd.read_json(data_path)
     data_cleaning = DataCleaning(data, DataPreProcessStrategy)
     data_cleaning.handle_data()
 

@@ -4,10 +4,12 @@ path = "data/extracted_data.json"
 data = pd.read_json(path)
 # data/extracted_data.json
 # /workspaces/Forecasting-MLops/data/extracted_data.json
-data['Valor'] = pd.to_numeric(data['Valor'].str.replace(',', '.'))
-
+data = data.drop(["Codigo", "Nombre", "Fecha"], axis=1)
+data["time"] = data.index 
 print( data.info(), "\n" )
+X = data.drop( ["Valor"], axis=1) # time serie
 
 
-print( data.head() )
+print( X.head() )
+
 

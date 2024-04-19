@@ -27,15 +27,19 @@ def clean_df(df: pd.DataFrame) -> Tuple[
     """
     try:
         process_strategy = DataPreProcessingStrategy()
+        print("DONE preprocessing \n")
         data_cleaning = DataCleaning(df, process_strategy)
         processed_data = data_cleaning.handle_data()
 
         divide_strategy = DataDivideStrategy()
         data_cleaning = DataCleaning( processed_data, divide_strategy )
+        print("DONE process clean")
         X_train, X_test, y_train, y_test = data_cleaning.handle_data()
         logging.info("Data Cleaning Completed")
+        print("Logrado")
+
         return  X_train, X_test, y_train, y_test 
-                     
+                  
     except Exception as e:
-        logging.error("Error in cleaning data: {}".format(e))
+        logging.error("Error in cleaning Data: {}".format(e))
         raise e
