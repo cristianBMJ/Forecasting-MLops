@@ -1,5 +1,5 @@
 # Forecasting-MLops
-Forecasting streaming data under paradigm MLops. For this task, I used MLops framework **ZENML**. 
+Forecasting streaming data under paradigm MLops. For this task, I used **ZENML** a MLops framework  
 
 ### ZENML
 Install requirements:
